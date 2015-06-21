@@ -7,7 +7,8 @@ require 'sdl'
 class Reversi
 	@@stoneState={'none'=>0,'white'=>1,'black'=>2}#マス目の状態を表す値を持つハッシュ
 	@@boardGridNum=8#ボードの縦横のマス数
-	
+	@@stoneColor='black'#次に置く石の色
+
 	def initialize(windowWidth,windowHeight,windowSpace,screen)
 		@windowSpace=windowSpace
 		@boardSize=windowWidth>windowHeight ? windowHeight-windowSpace*2 : windowWidth-windowSpace*2
@@ -54,13 +55,17 @@ class Reversi
 			xy[1]+=@gridSize
 		end
 	end
-	
-	def addStone(x,y,state)
-		if @gridState[y][x] ==@@stoneState['none']
+
+	def addStone(x,y,state=nil)
+		if @gridState[y][x] == @@stoneState['none']
+			if state==nil
+				state=@@stoneColor
+				@@stoneColor= @@stoneColor=='black' ? 'white':'black'
+			end
 			@gridState[y][x]=@@stoneState[state]
 		end
 	end
-	
+
 	attr_accessor :gridSize
 end
 
