@@ -81,6 +81,16 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Reversi.html" title="Reversi (class)">Reversi</a></span>, <span class='object_link'><a href="Window.html" title="Window (class)">Window</a></span>
+    
+  
+</p>
 
 
 
@@ -95,30 +105,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="top-level-namespace.html#drawGrid-instance_method" title="#drawGrid (instance method)">- (Object) <strong>drawGrid</strong>(space, gridNum, boardSize, screen) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>盤面を描画.</p>
-</div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -152,129 +138,7 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="drawGrid-instance_method">
-  
-    - (<tt>Object</tt>) <strong>drawGrid</strong>(space, gridNum, boardSize, screen) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>盤面を描画</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>space</span>
-      
-      
-        <span class='type'>(<tt>int</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>ウィンドウの余白サイズ</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>gridNum</span>
-      
-      
-        <span class='type'>(<tt>int</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>縦横のグリッド数</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>boardSize</span>
-      
-      
-        <span class='type'>(<tt>int</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>縦横のボードの長さ</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>screen</span>
-      
-      
-        <span class='type'>(<tt>SDL::Screen</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'main.rb', line 39</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_drawGrid'>drawGrid</span><span class='lparen'>(</span><span class='id identifier rubyid_space'>space</span><span class='comma'>,</span><span class='id identifier rubyid_gridNum'>gridNum</span><span class='comma'>,</span><span class='id identifier rubyid_boardSize'>boardSize</span><span class='comma'>,</span><span class='id identifier rubyid_screen'>screen</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_gridSize'>gridSize</span><span class='op'>=</span><span class='id identifier rubyid_boardSize'>boardSize</span><span class='op'>/</span><span class='id identifier rubyid_gridNum'>gridNum</span>
-
-	<span class='comment'>#横ラインを描画	
-</span>	<span class='lparen'>(</span><span class='id identifier rubyid_gridNum'>gridNum</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
-		<span class='id identifier rubyid_screen'>screen</span><span class='period'>.</span><span class='id identifier rubyid_draw_line'>draw_line</span><span class='lparen'>(</span><span class='id identifier rubyid_space'>space</span><span class='comma'>,</span><span class='id identifier rubyid_space'>space</span><span class='op'>+</span><span class='id identifier rubyid_gridSize'>gridSize</span><span class='op'>*</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_boardSize'>boardSize</span><span class='op'>+</span><span class='id identifier rubyid_space'>space</span><span class='comma'>,</span><span class='id identifier rubyid_space'>space</span><span class='op'>+</span><span class='id identifier rubyid_gridSize'>gridSize</span><span class='op'>*</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>255</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-	<span class='kw'>end</span>
-	<span class='comment'>#縦ラインを描画
-</span>	<span class='lparen'>(</span><span class='id identifier rubyid_gridNum'>gridNum</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
-		<span class='id identifier rubyid_screen'>screen</span><span class='period'>.</span><span class='id identifier rubyid_draw_line'>draw_line</span><span class='lparen'>(</span><span class='id identifier rubyid_space'>space</span><span class='op'>+</span><span class='id identifier rubyid_gridSize'>gridSize</span><span class='op'>*</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_space'>space</span><span class='comma'>,</span><span class='id identifier rubyid_space'>space</span><span class='op'>+</span><span class='id identifier rubyid_gridSize'>gridSize</span><span class='op'>*</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_boardSize'>boardSize</span><span class='op'>+</span><span class='id identifier rubyid_space'>space</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>255</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-	<span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="main-instance_method">
+  <h3 class="signature first" id="main-instance_method">
   
     - (<tt>Object</tt>) <strong>main</strong> 
   
@@ -288,9 +152,6 @@
       <pre class="lines">
 
 
-7
-8
-9
 10
 11
 12
@@ -313,35 +174,52 @@
 29
 30
 31
-32</pre>
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'main.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'main.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_main'>main</span><span class='lparen'>(</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_windowWidth'>windowWidth</span><span class='op'>=</span><span class='int'>500</span>
-	<span class='id identifier rubyid_windowHeight'>windowHeight</span><span class='op'>=</span><span class='int'>400</span>
-	<span class='id identifier rubyid_windowName'>windowName</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>オセロ</span><span class='tstring_end'>&#39;</span></span><span class='comment'>#メインウィンドウの表示名
-</span>	<span class='id identifier rubyid_windowSpace'>windowSpace</span><span class='op'>=</span><span class='int'>10</span><span class='comment'>#メインウィンドウの余白
+	<span class='id identifier rubyid_windowSpace'>windowSpace</span><span class='op'>=</span><span class='int'>10</span><span class='comment'>#メインウィンドウの余白
+</span>	<span class='id identifier rubyid_boardGridNum'>boardGridNum</span><span class='op'>=</span><span class='int'>8</span><span class='comment'>#ボードの縦横のマス数
+</span>	<span class='id identifier rubyid_backColor'>backColor</span><span class='op'>=</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>255</span><span class='comma'>,</span><span class='int'>255</span><span class='rbracket'>]</span><span class='comment'>#メインウィンドウの背景色
 </span>	
-	<span class='const'>SDL</span><span class='period'>.</span><span class='id identifier rubyid_init'>init</span><span class='lparen'>(</span><span class='const'>SDL</span><span class='op'>::</span><span class='const'>INIT_VIDEO</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_screen'>screen</span> <span class='op'>=</span> <span class='const'>SDL</span><span class='op'>::</span><span class='const'>Screen</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_windowWidth'>windowWidth</span><span class='comma'>,</span><span class='id identifier rubyid_windowHeight'>windowHeight</span><span class='comma'>,</span> <span class='int'>16</span><span class='comma'>,</span> <span class='const'>SDL</span><span class='op'>::</span><span class='const'>SWSURFACE</span><span class='rparen'>)</span>
-
-	<span class='const'>SDL</span><span class='op'>::</span><span class='const'>WM</span><span class='op'>::</span><span class='id identifier rubyid_set_caption'>set_caption</span><span class='lparen'>(</span><span class='id identifier rubyid_windowName'>windowName</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>testsprite.rb icon</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-
-	<span class='comment'>#ウィンドウサイズで縦横のどちらか短い方を盤面の縦横サイズに
-</span>	<span class='id identifier rubyid_boardSize'>boardSize</span><span class='op'>=</span><span class='id identifier rubyid_windowWidth'>windowWidth</span><span class='op'>&gt;</span><span class='id identifier rubyid_windowHeight'>windowHeight</span> <span class='op'>?</span> <span class='id identifier rubyid_windowHeight'>windowHeight</span><span class='op'>-</span><span class='id identifier rubyid_windowSpace'>windowSpace</span><span class='op'>*</span><span class='int'>2</span> <span class='op'>:</span> <span class='id identifier rubyid_windowWidth'>windowWidth</span><span class='op'>-</span><span class='id identifier rubyid_windowSpace'>windowSpace</span><span class='op'>*</span><span class='int'>2</span>
+	<span class='id identifier rubyid_window'>window</span><span class='op'>=</span><span class='const'>Window</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_backColor'>backColor</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_reversi'>reversi</span><span class='op'>=</span><span class='const'>Reversi</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_window'>window</span><span class='period'>.</span><span class='id identifier rubyid_width'>width</span><span class='comma'>,</span><span class='id identifier rubyid_window'>window</span><span class='period'>.</span><span class='id identifier rubyid_height'>height</span><span class='comma'>,</span><span class='id identifier rubyid_windowSpace'>windowSpace</span><span class='comma'>,</span><span class='id identifier rubyid_boardGridNum'>boardGridNum</span><span class='comma'>,</span><span class='id identifier rubyid_window'>window</span><span class='period'>.</span><span class='id identifier rubyid_screen'>screen</span><span class='rparen'>)</span>
 	<span class='comment'>#盤面を描画
-</span>	<span class='id identifier rubyid_drawGrid'>drawGrid</span><span class='lparen'>(</span><span class='id identifier rubyid_windowSpace'>windowSpace</span><span class='comma'>,</span><span class='int'>8</span><span class='comma'>,</span><span class='id identifier rubyid_boardSize'>boardSize</span><span class='comma'>,</span><span class='id identifier rubyid_screen'>screen</span><span class='rparen'>)</span>
-	
+</span>	<span class='id identifier rubyid_reversi'>reversi</span><span class='period'>.</span><span class='id identifier rubyid_drawGrid'>drawGrid</span><span class='lparen'>(</span><span class='rparen'>)</span>
+	<span class='comment'>#初期石を配置	
+</span>	<span class='id identifier rubyid_reversi'>reversi</span><span class='period'>.</span><span class='id identifier rubyid_addStone'>addStone</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>3</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>white</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_reversi'>reversi</span><span class='period'>.</span><span class='id identifier rubyid_addStone'>addStone</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>4</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>black</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_reversi'>reversi</span><span class='period'>.</span><span class='id identifier rubyid_addStone'>addStone</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span><span class='int'>3</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>black</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_reversi'>reversi</span><span class='period'>.</span><span class='id identifier rubyid_addStone'>addStone</span><span class='lparen'>(</span><span class='int'>4</span><span class='comma'>,</span><span class='int'>4</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>white</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
 	<span class='id identifier rubyid_loop'>loop</span> <span class='kw'>do</span>
 	  <span class='kw'>while</span> <span class='id identifier rubyid_event'>event</span> <span class='op'>=</span> <span class='const'>SDL</span><span class='op'>::</span><span class='const'>Event</span><span class='period'>.</span><span class='id identifier rubyid_poll'>poll</span>
 		<span class='kw'>case</span> <span class='id identifier rubyid_event'>event</span>
 		<span class='kw'>when</span> <span class='const'>SDL</span><span class='op'>::</span><span class='const'>Event</span><span class='op'>::</span><span class='const'>Quit</span>
 		  <span class='id identifier rubyid_exit'>exit</span>
+		<span class='kw'>when</span> <span class='const'>SDL</span><span class='op'>::</span><span class='const'>Event</span><span class='op'>::</span><span class='const'>MouseButtonUp</span>
+			<span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span><span class='op'>*</span> <span class='op'>=</span><span class='const'>SDL</span><span class='op'>::</span><span class='const'>Mouse</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span>
+			<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>x(</span><span class='tstring_end'>&quot;</span></span><span class='op'>+</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>)</span><span class='tstring_end'>&#39;</span></span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> y(</span><span class='tstring_end'>&#39;</span></span><span class='op'>+</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>)</span><span class='tstring_end'>&#39;</span></span>
+			<span class='id identifier rubyid_x'>x</span><span class='op'>-=</span><span class='id identifier rubyid_windowSpace'>windowSpace</span>
+			<span class='id identifier rubyid_y'>y</span><span class='op'>-=</span><span class='id identifier rubyid_windowSpace'>windowSpace</span>
+			<span class='id identifier rubyid_gridSize'>gridSize</span><span class='op'>=</span><span class='id identifier rubyid_reversi'>reversi</span><span class='period'>.</span><span class='id identifier rubyid_gridSize'>gridSize</span>
+			<span class='id identifier rubyid_reversi'>reversi</span><span class='period'>.</span><span class='id identifier rubyid_addStone'>addStone</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>/</span><span class='id identifier rubyid_gridSize'>gridSize</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>/</span><span class='id identifier rubyid_gridSize'>gridSize</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>black</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 		<span class='kw'>end</span>
+		<span class='id identifier rubyid_reversi'>reversi</span><span class='period'>.</span><span class='id identifier rubyid_drawStone'>drawStone</span><span class='lparen'>(</span><span class='rparen'>)</span>
 	  <span class='kw'>end</span>
-	  <span class='id identifier rubyid_screen'>screen</span><span class='period'>.</span><span class='id identifier rubyid_update_rect'>update_rect</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+	  <span class='id identifier rubyid_window'>window</span><span class='period'>.</span><span class='id identifier rubyid_screen'>screen</span><span class='period'>.</span><span class='id identifier rubyid_update_rect'>update_rect</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
 	<span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -354,7 +232,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Jun 18 11:11:27 2015 by
+  Generated on Sun Jun 21 21:35:13 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.0).
 </div>

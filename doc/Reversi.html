@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Reversi
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!Reversi.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (R)</a> &raquo;
+    
+    
+    <span class="title">Reversi</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Reversi
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Reversi</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">Reversi.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="stoneState-classvariable" class="">@@stoneState =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>マス目の状態を表す値を持つハッシュ</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>none</span><span class='tstring_end'>&#39;</span></span><span class='op'>=&gt;</span><span class='int'>0</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>white</span><span class='tstring_end'>&#39;</span></span><span class='op'>=&gt;</span><span class='int'>1</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>black</span><span class='tstring_end'>&#39;</span></span><span class='op'>=&gt;</span><span class='int'>2</span><span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gridSize-instance_method" title="#gridSize (instance method)">- (Object) <strong>gridSize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute gridSize.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#addStone-instance_method" title="#addStone (instance method)">- (Object) <strong>addStone</strong>(x, y, state) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#drawGrid-instance_method" title="#drawGrid (instance method)">- (nil) <strong>drawGrid</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>盤面を描画.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#drawStone-instance_method" title="#drawStone (instance method)">- (Object) <strong>drawStone</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Reversi) <strong>initialize</strong>(windowWidth, windowHeight, windowSpace, boardGridNum, screen) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Reversi.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Reversi (class)">Reversi</a></span></tt>) <strong>initialize</strong>(windowWidth, windowHeight, windowSpace, boardGridNum, screen) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Reversi</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Reversi.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_windowWidth'>windowWidth</span><span class='comma'>,</span><span class='id identifier rubyid_windowHeight'>windowHeight</span><span class='comma'>,</span><span class='id identifier rubyid_windowSpace'>windowSpace</span><span class='comma'>,</span><span class='id identifier rubyid_boardGridNum'>boardGridNum</span><span class='comma'>,</span><span class='id identifier rubyid_screen'>screen</span><span class='rparen'>)</span>
+	<span class='ivar'>@windowSpace</span><span class='op'>=</span><span class='id identifier rubyid_windowSpace'>windowSpace</span>
+	<span class='ivar'>@boardSize</span><span class='op'>=</span><span class='id identifier rubyid_windowWidth'>windowWidth</span><span class='op'>&gt;</span><span class='id identifier rubyid_windowHeight'>windowHeight</span> <span class='op'>?</span> <span class='id identifier rubyid_windowHeight'>windowHeight</span><span class='op'>-</span><span class='id identifier rubyid_windowSpace'>windowSpace</span><span class='op'>*</span><span class='int'>2</span> <span class='op'>:</span> <span class='id identifier rubyid_windowWidth'>windowWidth</span><span class='op'>-</span><span class='id identifier rubyid_windowSpace'>windowSpace</span><span class='op'>*</span><span class='int'>2</span>
+	<span class='ivar'>@boardGridNum</span><span class='op'>=</span><span class='id identifier rubyid_boardGridNum'>boardGridNum</span>
+	<span class='comment'>#マス目の状態格納用２次元配列(0:なし1:白2:黒)
+</span>	<span class='ivar'>@gridState</span><span class='op'>=</span><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_boardGridNum'>boardGridNum</span><span class='rparen'>)</span> <span class='kw'>do</span>
+		<span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_boardGridNum'>boardGridNum</span><span class='comma'>,</span><span class='int'>0</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+	<span class='ivar'>@screen</span><span class='op'>=</span><span class='id identifier rubyid_screen'>screen</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="gridSize=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="gridSize-instance_method">
+  
+    - (<tt>Object</tt>) <strong>gridSize</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute gridSize</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Reversi.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gridSize'>gridSize</span>
+  <span class='ivar'>@gridSize</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="addStone-instance_method">
+  
+    - (<tt>Object</tt>) <strong>addStone</strong>(x, y, state) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Reversi.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_addStone'>addStone</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span><span class='id identifier rubyid_state'>state</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_state'>state</span>
+	<span class='ivar'>@gridState</span><span class='lbracket'>[</span><span class='id identifier rubyid_y'>y</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span><span class='op'>=</span><span class='cvar'>@@stoneState</span><span class='lbracket'>[</span><span class='id identifier rubyid_state'>state</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="drawGrid-instance_method">
+  
+    - (<tt>nil</tt>) <strong>drawGrid</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>盤面を描画</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>戻り地なし</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Reversi.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_drawGrid'>drawGrid</span><span class='lparen'>(</span><span class='rparen'>)</span>
+	<span class='ivar'>@gridSize</span><span class='op'>=</span><span class='ivar'>@boardSize</span><span class='op'>/</span><span class='ivar'>@boardGridNum</span><span class='comment'>#1グリッドのサイズ
+</span>	<span class='ivar'>@endPlace</span><span class='op'>=</span><span class='ivar'>@boardSize</span><span class='op'>+</span><span class='ivar'>@windowSpace</span><span class='comment'>#縦横の線描画する終点座標
+</span>	<span class='ivar'>@lineColor</span><span class='op'>=</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>255</span><span class='rbracket'>]</span><span class='comment'>#線の色
+</span>
+	<span class='comment'>#横ラインを描画	
+</span>	<span class='lparen'>(</span><span class='ivar'>@boardGridNum</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+		<span class='id identifier rubyid_y'>y</span><span class='op'>=</span><span class='ivar'>@windowSpace</span><span class='op'>+</span><span class='ivar'>@gridSize</span><span class='op'>*</span><span class='id identifier rubyid_i'>i</span>
+		<span class='ivar'>@screen</span><span class='period'>.</span><span class='id identifier rubyid_draw_line'>draw_line</span><span class='lparen'>(</span><span class='ivar'>@windowSpace</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span><span class='ivar'>@endPlace</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span><span class='ivar'>@lineColor</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+	<span class='comment'>#縦ラインを描画
+</span>	<span class='lparen'>(</span><span class='ivar'>@boardGridNum</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+		<span class='id identifier rubyid_x'>x</span><span class='op'>=</span><span class='ivar'>@windowSpace</span><span class='op'>+</span><span class='ivar'>@gridSize</span><span class='op'>*</span><span class='id identifier rubyid_i'>i</span>
+		<span class='ivar'>@screen</span><span class='period'>.</span><span class='id identifier rubyid_draw_line'>draw_line</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='ivar'>@windowSpace</span><span class='comma'>,</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='ivar'>@endPlace</span><span class='comma'>,</span><span class='ivar'>@lineColor</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="drawStone-instance_method">
+  
+    - (<tt>Object</tt>) <strong>drawStone</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Reversi.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_drawStone'>drawStone</span><span class='lparen'>(</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_xy'>xy</span><span class='op'>=</span><span class='lbracket'>[</span><span class='ivar'>@windowSpace</span><span class='op'>+</span><span class='ivar'>@gridSize</span><span class='op'>/</span><span class='int'>2</span><span class='comma'>,</span><span class='ivar'>@windowSpace</span><span class='op'>+</span><span class='ivar'>@gridSize</span><span class='op'>/</span><span class='int'>2</span><span class='rbracket'>]</span>
+	<span class='ivar'>@color</span><span class='op'>=</span><span class='lbracket'>[</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>255</span><span class='comma'>,</span><span class='int'>255</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='int'>255</span><span class='comma'>,</span><span class='int'>255</span><span class='comma'>,</span><span class='int'>255</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='comma'>,</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
+	<span class='ivar'>@boardGridNum</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+		<span class='ivar'>@boardGridNum</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_j'>j</span><span class='op'>|</span>
+			<span class='ivar'>@screen</span><span class='period'>.</span><span class='id identifier rubyid_draw_circle'>draw_circle</span><span class='lparen'>(</span><span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='ivar'>@gridSize</span><span class='op'>/</span><span class='int'>2</span><span class='op'>-</span><span class='int'>5</span><span class='comma'>,</span><span class='ivar'>@color</span><span class='lbracket'>[</span><span class='ivar'>@gridState</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_j'>j</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='comma'>,</span><span class='kw'>true</span><span class='rparen'>)</span>
+			<span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='op'>+=</span><span class='ivar'>@gridSize</span><span class='semicolon'>;</span>
+		<span class='kw'>end</span>
+		<span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='op'>=</span><span class='ivar'>@windowSpace</span><span class='op'>+</span><span class='ivar'>@gridSize</span><span class='op'>/</span><span class='int'>2</span>
+		<span class='id identifier rubyid_xy'>xy</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='op'>+=</span><span class='ivar'>@gridSize</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Jun 21 21:35:13 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.0).
+</div>
+
+  </body>
+</html>
