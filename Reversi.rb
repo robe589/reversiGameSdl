@@ -55,8 +55,6 @@ class Reversi
 		@gridState[y][x]=@@stoneState[state]
 	end
 	
-	def getBoardGridSize()
-		return @gridSize
-	end
+	attr_accessor :gridSize
 end
 

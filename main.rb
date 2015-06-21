@@ -38,7 +38,7 @@ def main()
 			puts "x("+x.to_s+')'+' y('+y.to_s+')'
 			x-=windowSpace
 			y-=windowSpace
-			gridSize=reversi.getBoardGridSize()
+			gridSize=reversi.gridSize
 			reversi.addStone(x/gridSize,y/gridSize,'black')
 		end
 		reversi.drawStone()
