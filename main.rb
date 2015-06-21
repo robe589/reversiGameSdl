@@ -9,11 +9,10 @@ require './Window'
 
 def main()
 	windowSpace=10#メインウィンドウの余白
-	boardGridNum=8#ボードの縦横のマス数
 	backColor=[0,255,255]#メインウィンドウの背景色
 	
 	window=Window.new(backColor)
-	reversi=Reversi.new(window.width,window.height,windowSpace,boardGridNum,window.screen)
+	reversi=Reversi.new(window.width,window.height,windowSpace,window.screen)
 	#盤面を描画
 	reversi.drawGrid()
 	
