@@ -5,21 +5,14 @@ Bundler.require
 require 'sdl'
 
 require './Reversi'
+require './Window'
 
 def main()
-	windowWidth=500
-	windowHeight=420
-	windowName='オセロ'#メインウィンドウの表示名
 	windowSpace=10#メインウィンドウの余白
 	boardGridNum=8#ボードの縦横のマス数
-	SDL.init(SDL::INIT_VIDEO)
-	screen = SDL::Screen.open(windowWidth,windowHeight, 16, SDL::SWSURFACE)
-	SDL::WM::set_caption(windowName,'testsprite.rb icon')
-
-	#背景色を赤で塗りつぶし
-	screen.fill_rect(0,0,windowWidth,windowHeight,[0,255,255])
 	
-	reversi=Reversi.new(windowWidth,windowHeight,windowSpace,boardGridNum,screen)
+	window=Window.new
+	reversi=Reversi.new(window.width,window.height,windowSpace,boardGridNum,window.screen)
 	#盤面を描画
 	reversi.drawGrid()
 	#初期石を配置	
