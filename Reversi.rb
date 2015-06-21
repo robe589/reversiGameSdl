@@ -56,8 +56,9 @@ class Reversi
 	end
 	
 	def addStone(x,y,state)
-		p state
-		@gridState[y][x]=@@stoneState[state]
+		if @gridState[y][x] ==@@stoneState['none']
+			@gridState[y][x]=@@stoneState[state]
+		end
 	end
 	
 	attr_accessor :gridSize
