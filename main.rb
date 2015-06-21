@@ -31,7 +31,7 @@ def sdlLoop(windowSpace,reversi,window)
 			x-=windowSpace
 			y-=windowSpace
 			gridSize=reversi.gridSize
-			reversi.addStone(x/gridSize,y/gridSize)
+			reversi.putStone(x/gridSize,y/gridSize)
 		end
 		reversi.drawStone()
 	  end

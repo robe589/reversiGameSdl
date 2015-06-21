@@ -56,23 +56,28 @@ class Reversi
 		end
 	end
 
-	def addStone(x,y,state=nil)
+	#初期石を置く際に使用
+	def addStone(x,y,state)
 		if @gridState[y][x] != @@stoneState['none']
 			return
 		end
-		stateBack=state
-		if state==nil
-			state=@@stoneColor
-		end
-		if judgePlaceable(x,y,@@stoneState[state])==true or stateBack !=nil
-			puts state
-			@gridState[y][x]=@@stoneState[state]
-			if stateBack ==nil
-				@@stoneColor= @@stoneColor=='black' ? 'white':'black'
-			end
-		end
+		@gridState[y][x]=@@stoneState[state]
 	end
 
+	#通常時石を置く際に使用
+	def putStone(x,y)
+		if @gridState[y][x] != @@stoneState['none']
+			return
+		end
+		state=@@stoneColor
+		if judgePlaceable(x,y,@@stoneState[state])==true
+			puts state
+			@gridState[y][x]=@@stoneState[state]
+			@@stoneColor= @@stoneColor=='black' ? 'white':'black'
+		end
+	end
+	
+	#石を置くことが可能かどうか
 	def judgePlaceable(x,y,state)
 		renge1=(x-1)..(x+1)
 		renge2=(y-1)..(y+1)
