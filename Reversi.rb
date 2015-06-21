@@ -13,7 +13,7 @@ class Reversi
 		@windowSpace=windowSpace
 		@boardSize=windowWidth>windowHeight ? windowHeight-windowSpace*2 : windowWidth-windowSpace*2
 		#マス目の状態格納用２次元配列(0:なし1:白2:黒)
-		@gridState=Array.new(@@boardGridNum) do
+		@gridState=Array.new(@@boardGridNum).map do
 			Array.new(@@boardGridNum,0)
 		end
 		@screen=screen
@@ -57,12 +57,50 @@ class Reversi
 	end
 
 	def addStone(x,y,state=nil)
-		if @gridState[y][x] == @@stoneState['none']
-			if state==nil
-				state=@@stoneColor
+		if @gridState[y][x] != @@stoneState['none']
+			return
+		end
+		stateBack=state
+		if state==nil
+			state=@@stoneColor
+		end
+		if judgePlaceable(x,y,@@stoneState[state])==true or stateBack !=nil
+			puts state
+			@gridState[y][x]=@@stoneState[state]
+			if stateBack ==nil
 				@@stoneColor= @@stoneColor=='black' ? 'white':'black'
 			end
-			@gridState[y][x]=@@stoneState[state]
+		end
+	end
+
+	def judgePlaceable(x,y,state)
+		renge1=(x-1)..(x+1)
+		renge2=(y-1)..(y+1)
+		
+		puts 'x,y'
+		renge1.each do |i|
+			renge2.each do |j|
+				stoneNum=getPlaceStone(i,j)
+				puts 'i('+i.to_s+') j('+j.to_s+')='+stoneNum.to_s
+				if state != stoneNum and stoneNum!=0
+					diffX=i-x
+					diffY=j-y
+					puts 'x+diffX*2('+(x+diffX*2).to_s+') y+diffY*2('+(y+diffY*2).to_s+')='+getPlaceStone(x+diffX*2,y+diffY*2).to_s
+					if getPlaceStone(x+diffX*2,y+diffY*2) ==state 
+						puts'置ける'
+						return true
+					end
+				end
+			end
+		end
+		return false
+	end
+
+	def getPlaceStone(x,y)
+		if y>=0 and x>=0 and x<@@boardGridNum and y<@@boardGridNum
+			return @gridState[y][x]
+		else
+			return -1
 		end
 	end
 
