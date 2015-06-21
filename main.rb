@@ -12,7 +12,6 @@ def main()
 	windowName='オセロ'#メインウィンドウの表示名
 	windowSpace=10#メインウィンドウの余白
 	boardGridNum=8#ボードの縦横のマス数
-	stoneState={'none'=>0,'white'=>1,'black'=>2}#マス目の状態を表す値を持つハッシュ
 	SDL.init(SDL::INIT_VIDEO)
 	screen = SDL::Screen.open(windowWidth,windowHeight, 16, SDL::SWSURFACE)
 	SDL::WM::set_caption(windowName,'testsprite.rb icon')
@@ -20,7 +19,7 @@ def main()
 	#背景色を赤で塗りつぶし
 	screen.fill_rect(0,0,windowWidth,windowHeight,[0,255,255])
 	
-	reversi=Reversi.new(windowWidth,windowHeight,windowSpace,boardGridNum,stoneState,screen)
+	reversi=Reversi.new(windowWidth,windowHeight,windowSpace,boardGridNum,screen)
 	#盤面を描画
 	reversi.drawGrid()
 	#初期石を配置	

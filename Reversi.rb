@@ -5,7 +5,9 @@ Bundler.require
 require 'sdl'
 
 class Reversi
-	def initialize(windowWidth,windowHeight,windowSpace,boardGridNum,stoneState,screen)
+	@@stoneState={'none'=>0,'white'=>1,'black'=>2}#マス目の状態を表す値を持つハッシュ
+	
+	def initialize(windowWidth,windowHeight,windowSpace,boardGridNum,screen)
 		@windowSpace=windowSpace
 		@boardSize=windowWidth>windowHeight ? windowHeight-windowSpace*2 : windowWidth-windowSpace*2
 		@boardGridNum=boardGridNum
@@ -14,7 +16,6 @@ class Reversi
 			Array.new(boardGridNum,0)
 		end
 		@screen=screen
-		@stoneState=stoneState
 	end
 	
 	#盤面を描画
@@ -50,7 +51,8 @@ class Reversi
 	end
 	
 	def addStone(x,y,state)
-		@gridState[y][x]=@stoneState[state]
+		p state
+		@gridState[y][x]=@@stoneState[state]
 	end
 	
 	def getBoardGridSize()
