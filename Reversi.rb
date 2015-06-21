@@ -70,7 +70,8 @@ class Reversi
 			return
 		end
 		state=@@stoneColor
-		if judgePlaceable(x,y,@@stoneState[state])
+		reverseList=searchPlaceable(x,y,@@stoneState[state])
+		if reverseList.length!=0	
 			puts state
 			@gridState[y][x]=@@stoneState[state]
 			@@stoneColor= @@stoneColor=='black' ? 'white':'black'
@@ -78,27 +79,43 @@ class Reversi
 	end
 	
 	#石を置くことが可能かどうか
-	def judgePlaceable(x,y,state)
+	def searchPlaceable(x,y,state)
 		renge1=(x-1)..(x+1)
 		renge2=(y-1)..(y+1)
-		
+		reverseList=Array.new#石がひっくり返るリスト
 		puts 'x,y'
 		renge1.each do |i|
 			renge2.each do |j|
 				stoneNum=getPlaceStone(i,j)
 				puts 'i('+i.to_s+') j('+j.to_s+')='+stoneNum.to_s
 				if state != stoneNum and stoneNum!=0
+					tmpReverseList=Array.new
 					diffX=i-x
 					diffY=j-y
-					puts 'x+diffX*2('+(x+diffX*2).to_s+') y+diffY*2('+(y+diffY*2).to_s+')='+getPlaceStone(x+diffX*2,y+diffY*2).to_s
-					if getPlaceStone(x+diffX*2,y+diffY*2) ==state 
-						puts'置ける'
-						return true
-					end
+					searchX=x+diffX*2
+					searchY=y+diffY*2
+					puts 'x+diffX*2('+searchX.to_s+') y+diffY*2('+searchY.to_s+')='+getPlaceStone(searchX,searchY).to_s
+					loop{
+						getState=getPlaceStone(searchX,searchY)
+						if getState==state
+							puts'置ける'
+							tmpReverseList.push([searchX,searchY])
+							tmpReverseList.each do |item|
+								reverseList.push(item)
+							end
+							break
+						elsif getState!=@@stoneState['none']
+							tmpReverseList.push([searchX,searchY])
+							searchX+=diffX
+							searchY+=diffY
+						else
+							break
+						end
+					}
 				end
 			end
 		end
-		return false
+		return reverseList
 	end
 
 	def getPlaceStone(x,y)
