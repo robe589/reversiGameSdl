@@ -22,6 +22,11 @@ def main()
 	reversi.addStone(4,3,'black')
 	reversi.addStone(4,4,'white')
 
+	sdlLoop(windowSpace,reversi,window)
+	
+end
+
+def sdlLoop(windowSpace,reversi,window)
 	loop do
 	  while event = SDL::Event.poll
 		case event
