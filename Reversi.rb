@@ -17,10 +17,10 @@ class Reversi
 		end
 		@screen=screen
 		#初期石を配置	
-		addStone(3,3,'white')
-		addStone(3,4,'black')
-		addStone(4,3,'black')
-		addStone(4,4,'white')
+		place=[[3,3,'white'],[3,4,'black'],[4,3,'black'],[4,4,'white']]
+		place.each do |x,y,state|
+			addStone(x,y,state)
+		end
 	end
 	
 	#盤面を描画
