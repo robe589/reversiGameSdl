@@ -70,7 +70,7 @@ class Reversi
 			return
 		end
 		state=@@stoneColor
-		if judgePlaceable(x,y,@@stoneState[state])==true
+		if judgePlaceable(x,y,@@stoneState[state])
 			puts state
 			@gridState[y][x]=@@stoneState[state]
 			@@stoneColor= @@stoneColor=='black' ? 'white':'black'
