@@ -16,6 +16,11 @@ class Reversi
 			Array.new(boardGridNum,0)
 		end
 		@screen=screen
+		#初期石を配置	
+		addStone(3,3,'white')
+		addStone(3,4,'black')
+		addStone(4,3,'black')
+		addStone(4,4,'white')
 	end
 	
 	#盤面を描画

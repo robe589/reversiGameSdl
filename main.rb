@@ -16,14 +16,8 @@ def main()
 	reversi=Reversi.new(window.width,window.height,windowSpace,boardGridNum,window.screen)
 	#盤面を描画
 	reversi.drawGrid()
-	#初期石を配置	
-	reversi.addStone(3,3,'white')
-	reversi.addStone(3,4,'black')
-	reversi.addStone(4,3,'black')
-	reversi.addStone(4,4,'white')
-
-	sdlLoop(windowSpace,reversi,window)
 	
+	sdlLoop(windowSpace,reversi,window)
 end
 
 def sdlLoop(windowSpace,reversi,window)
