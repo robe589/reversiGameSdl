@@ -74,6 +74,10 @@ class Reversi
 		if reverseList.length!=0	
 			puts state
 			@gridState[y][x]=@@stoneState[state]
+			reverseList.each do |code|
+				p code
+				@gridState[code[1]][code[0]]=@@stoneState[@@stoneColor]
+			end
 			@@stoneColor= @@stoneColor=='black' ? 'white':'black'
 		end
 	end
@@ -99,7 +103,7 @@ class Reversi
 						getState=getPlaceStone(searchX,searchY)
 						if getState==state
 							puts'置ける'
-							tmpReverseList.push([searchX,searchY])
+							tmpReverseList.push([searchX-diffX,searchY-diffY])
 							tmpReverseList.each do |item|
 								reverseList.push(item)
 							end
