@@ -97,6 +97,7 @@ class Reversi
 				puts 'i('+i.to_s+') j('+j.to_s+')='+stoneNum.to_s
 				if state != stoneNum and stoneNum!=0
 					tmpReverseList=Array.new
+					tmpReverseList.push([i,j])
 					diffX=i-x
 					diffY=j-y
 					searchX=x+diffX*2
@@ -109,7 +110,6 @@ class Reversi
 						end
 						if getState==state
 							puts'置ける'
-							tmpReverseList.push([searchX-diffX,searchY-diffY])
 							tmpReverseList.each do |item|
 								reverseList.push(item)
 							end
