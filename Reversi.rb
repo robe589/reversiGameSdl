@@ -91,6 +91,9 @@ class Reversi
 		renge1.each do |i|
 			renge2.each do |j|
 				stoneNum=getPlaceStone(i,j)
+				if stoneNum==false 
+					next 
+				end
 				puts 'i('+i.to_s+') j('+j.to_s+')='+stoneNum.to_s
 				if state != stoneNum and stoneNum!=0
 					tmpReverseList=Array.new
@@ -101,6 +104,9 @@ class Reversi
 					puts 'x+diffX*2('+searchX.to_s+') y+diffY*2('+searchY.to_s+')='+getPlaceStone(searchX,searchY).to_s
 					loop{
 						getState=getPlaceStone(searchX,searchY)
+						if getState==false 
+							break
+						end
 						if getState==state
 							puts'置ける'
 							tmpReverseList.push([searchX-diffX,searchY-diffY])
@@ -126,7 +132,7 @@ class Reversi
 		if y>=0 and x>=0 and x<@@boardGridNum and y<@@boardGridNum
 			return @gridState[y][x]
 		else
-			return -1
+			return false
 		end
 	end
 
