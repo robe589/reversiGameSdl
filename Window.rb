@@ -6,7 +6,7 @@ require 'sdl'
 
 #ウィンドウに関するクラス
 class Window
-	@@width=500
+	@@width=700
 	@@height=420
 	@@windowName='オセロ'#メインウィンドウの表示名
 
@@ -18,6 +18,7 @@ class Window
 	def initialize(backColor)
 		@backColor=backColor
 		SDL.init(SDL::INIT_VIDEO)
+		SDL::TTF.init
 		@screen = SDL::Screen.open(@@width,@@height, 16, SDL::SWSURFACE)
 		SDL::WM::set_caption(@@windowName,'testsprite.rb icon')
 
