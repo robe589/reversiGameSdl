@@ -36,6 +36,7 @@ def sdlLoop(windowSpace,reversi,window)
 		reversi.drawStone()
 	  end
 	  window.screen.update_rect(0, 0, 0, 0)
+	  reversi.countStone()
 	  reversi.showText()
 	end
 end

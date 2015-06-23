@@ -146,7 +146,8 @@ class Reversi
 		#フォントの高さを取得
 		fontHeight=font.height+1
 		showStr=[@@stoneColor+'の番です',
-			 @turnNum.to_s+'ターン目です'
+			 @turnNum.to_s+'ターン目です',
+			 '黒:'+@blackStoneNum.to_s+'白:'+@whiteStoneNum.to_s
 			]
 		startX=500
 		startY=0
@@ -157,6 +158,21 @@ class Reversi
 		end
 
 		font.close
+	end
+	
+	#黒白それぞれの石の数を数える
+	def countStone()
+		@blackStoneNum=@whiteStoneNum=0
+
+		@gridState.each do |state|
+			state.each do |state2|
+				if state2==@@stoneState['black']
+					@blackStoneNum+=1
+				elsif state2==@@stoneState['white']
+					@whiteStoneNum+=1
+				end
+			end
+		end
 	end
 
 	attr_accessor :gridSize
