@@ -23,6 +23,8 @@ class Reversi
 		place.each do |x,y,state|
 			addStone(x,y,state)
 		end
+		#ターン数を初期化
+		@turnNum=1
 	end
 	
 	#盤面を描画
@@ -80,6 +82,7 @@ class Reversi
 				@gridState[code[1]][code[0]]=@@stoneState[@@stoneColor]
 			end
 			@@stoneColor= @@stoneColor=='black' ? 'white':'black'
+			@turnNum+=1
 		end
 	end
 	
@@ -137,10 +140,21 @@ class Reversi
 		end
 	end
 
+	#画面にメッセージを描画
 	def showText()
 		font=SDL::TTF.open('font/msgothic.ttc',24)
-		str=@@stoneColor+'の番です'
-		font.draw_shaded_utf8(@screen,str,500,0,255,0,0,@backColor[0],@backColor[1],@backColor[2])
+		#フォントの高さを取得
+		fontHeight=font.height+1
+		showStr=[@@stoneColor+'の番です',
+			 @turnNum.to_s+'ターン目です'
+			]
+		startX=500
+		startY=0
+		showStr.each do |str|
+			font.draw_shaded_utf8(@screen,str,startX,startY,255,0,0,@backColor[0],@backColor[1],@backColor[2])
+			startY+=fontHeight
+		end
+
 		font.close
 	end
 
