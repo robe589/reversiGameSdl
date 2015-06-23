@@ -2,3 +2,4 @@ vendor/
 .bundle/config
 account.rb
 .yardoc/
+font/
