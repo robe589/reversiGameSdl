@@ -150,8 +150,9 @@ class Reversi
 			]
 		startX=500
 		startY=0
+		fontColor=[0,0,0]
 		showStr.each do |str|
-			font.draw_shaded_utf8(@screen,str,startX,startY,255,0,0,@backColor[0],@backColor[1],@backColor[2])
+			font.draw_shaded_utf8(@screen,str,startX,startY,*fontColor,*@backColor)
 			startY+=fontHeight
 		end
 
