@@ -77,9 +77,13 @@ class Reversi
 		if reverseList.length!=0	
 			puts state
 			@gridState[y][x]=@@stoneState[state]
-			reverseList.each do |code|
+			puts 'reverseList='+ reverseList.to_s
+			reverseList.reverse_each do |code|
 				p code
 				@gridState[code[1]][code[0]]=@@stoneState[@@stoneColor]
+				drawStone()
+				@screen.update_rect(0,0,0,0)
+				SDL.delay(500)
 			end
 			@@stoneColor= @@stoneColor=='black' ? 'white':'black'
 			@turnNum+=1
