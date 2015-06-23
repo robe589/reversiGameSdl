@@ -9,7 +9,7 @@ class Reversi
 	@@boardGridNum=8#ボードの縦横のマス数
 	@@stoneColor='black'#次に置く石の色
 
-	def initialize(windowWidth,windowHeight,windowSpace,screen)
+	def initialize(windowWidth,windowHeight,windowSpace,screen,backColor)
 		@windowSpace=windowSpace
 		@boardSize=windowWidth>windowHeight ? windowHeight-windowSpace*2 : windowWidth-windowSpace*2
 		#マス目の状態格納用２次元配列(0:なし1:白2:黒)
@@ -17,6 +17,7 @@ class Reversi
 			Array.new(@@boardGridNum,0)
 		end
 		@screen=screen
+		@backColor=backColor
 		#初期石を配置	
 		place=[[3,3,'white'],[3,4,'black'],[4,3,'black'],[4,4,'white']]
 		place.each do |x,y,state|
@@ -134,6 +135,13 @@ class Reversi
 		else
 			return false
 		end
+	end
+
+	def showText()
+		font=SDL::TTF.open('font/msgothic.ttc',24)
+		str=@@stoneColor+'の番です'
+		font.draw_shaded_utf8(@screen,str,500,0,255,0,0,@backColor[0],@backColor[1],@backColor[2])
+		font.close
 	end
 
 	attr_accessor :gridSize

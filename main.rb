@@ -12,7 +12,7 @@ def main()
 	backColor=[0,255,255]#メインウィンドウの背景色
 	
 	window=Window.new(backColor)
-	reversi=Reversi.new(window.width,window.height,windowSpace,window.screen)
+	reversi=Reversi.new(window.width,window.height,windowSpace,window.screen,backColor)
 	#盤面を描画
 	reversi.drawGrid()
 	
@@ -36,6 +36,7 @@ def sdlLoop(windowSpace,reversi,window)
 		reversi.drawStone()
 	  end
 	  window.screen.update_rect(0, 0, 0, 0)
+	  reversi.showText()
 	end
 end
 
