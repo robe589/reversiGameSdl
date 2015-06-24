@@ -6,21 +6,24 @@ require 'sdl'
 
 require './Reversi'
 require './Window'
+require './Draw'
 
 def main()
 	windowSpace=10#メインウィンドウの余白
 	backColor=[0,255,255]#メインウィンドウの背景色
 	
 	window=Window.new(backColor)
-	reversi=Reversi.new(window.width,window.height,windowSpace,window.screen,backColor)
+	reversi=Reversi.new()
+	draw=Draw.new(window.width,window.height,windowSpace,window.screen,backColor,reversi.gridState)
 	#盤面を描画
-	reversi.drawGrid()
-	reversi.drawStone()
-	reversi.showPutStone()
-	sdlLoop(windowSpace,reversi,window)
+	draw.drawGrid()
+	draw.drawStone()
+	list=reversi.showPutStone()
+	draw.availablePutStone(list)
+	sdlLoop(windowSpace,reversi,window,draw)
 end
 
-def sdlLoop(windowSpace,reversi,window)
+def sdlLoop(windowSpace,reversi,window,draw)
 	loop do
 	  while event = SDL::Event.poll
 		case event
@@ -31,15 +34,16 @@ def sdlLoop(windowSpace,reversi,window)
 			puts "x("+x.to_s+')'+' y('+y.to_s+')'
 			x-=windowSpace
 			y-=windowSpace
-			gridSize=reversi.gridSize
+			gridSize=draw.gridSize
 			reversi.putStone(y/gridSize,x/gridSize)
-			reversi.showPutStone()
+			list=reversi.showPutStone()
+			draw.availablePutStone(list)
 		end
-		reversi.drawStone()
+		draw.drawStone()
 	  end
 	  window.screen.update_rect(0, 0, 0, 0)
 	  reversi.countStone()
-	  reversi.showText()
+	  draw.showText(reversi.stoneColor,reversi.turnNum,reversi.blackStoneNum,reversi.whiteStoneNum)
 	end
 end
 
