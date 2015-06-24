@@ -52,7 +52,7 @@ class Reversi
 		@color=[[0,255,255],[255,255,255],[0,0,0]]
 		@@boardGridNum.times do |i|
 			@@boardGridNum.times do |j|
-				@screen.draw_circle(xy[0],xy[1],@gridSize/2-5,@color[@gridState[i][j]],true)
+				@screen.draw_circle(xy[0],xy[1],@gridSize/2-5,@color[getPlaceStone(i,j)],true)
 				xy[0]+=@gridSize;
 			end
 			xy[0]=@windowSpace+@gridSize/2
@@ -62,26 +62,26 @@ class Reversi
 
 	#初期石を置く際に使用
 	def addStone(x,y,state)
-		if @gridState[y][x] != @@stoneState['none']
+		if getPlaceStone(x,y) != @@stoneState['none']
 			return
 		end
-		@gridState[y][x]=@@stoneState[state]
+		@gridState[x][y]=@@stoneState[state]
 	end
 
 	#通常時石を置く際に使用
 	def putStone(x,y)
-		if @gridState[y][x] != @@stoneState['none']
+		if getPlaceStone(x,y) != @@stoneState['none']
 			return
 		end
 		state=@@stoneColor
 		reverseList=searchPlaceable(x,y,@@stoneState[state])
 		if reverseList.length!=0	
 			puts state
-			@gridState[y][x]=@@stoneState[state]
+			@gridState[x][y]=@@stoneState[state]
 			puts 'reverseList='+ reverseList.to_s
 			reverseList.reverse_each do |code|
 				p code
-				@gridState[code[1]][code[0]]=@@stoneState[@@stoneColor]
+				@gridState[code[0]][code[1]]=@@stoneState[@@stoneColor]
 				drawStone()
 				@screen.update_rect(0,0,0,0)
 				SDL.delay(500)
@@ -117,7 +117,7 @@ class Reversi
 				isPut=false
 				putStonePlaceList.each do |data|
 					pp data
-					if data[0]==j and data[1]==i
+					if data[0]==i and data[1]==j
 						isPut=true
 					end
 				end
@@ -184,7 +184,7 @@ class Reversi
 
 	def getPlaceStone(x,y)
 		if y>=0 and x>=0 and x<@@boardGridNum and y<@@boardGridNum
-			return @gridState[y][x]
+			return @gridState[x][y]
 		else
 			return false
 		end
