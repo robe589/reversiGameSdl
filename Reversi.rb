@@ -231,13 +231,8 @@ class Reversi
 		@blackStoneNum=@whiteStoneNum=0
 
 		@gridState.each do |state|
-			state.each do |state2|
-				if state2==@@stoneState['black']
-					@blackStoneNum+=1
-				elsif state2==@@stoneState['white']
-					@whiteStoneNum+=1
-				end
-			end
+			@blackStoneNum+=state.count(@@stoneState['black'])
+			@whiteStoneNum+=state.count(@@stoneState['white'])
 		end
 	end
 
