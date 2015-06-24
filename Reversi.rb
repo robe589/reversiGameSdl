@@ -151,7 +151,7 @@ class Reversi
 		fontHeight=font.height+1
 		showStr=[@@stoneColor+'の番です',
 			 @turnNum.to_s+'ターン目です',
-			 '黒:'+@blackStoneNum.to_s+'白:'+@whiteStoneNum.to_s
+			 '黒:'+"%2d" % @blackStoneNum.to_s+'白:'+"%2d" % @whiteStoneNum.to_s
 			]
 		startX=500
 		startY=0
