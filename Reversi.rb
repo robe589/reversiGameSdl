@@ -159,11 +159,12 @@ class Reversi
 		renge1=(x-1)..(x+1)
 		renge2=(y-1)..(y+1)
 		reverseList=Array.new#石がひっくり返るリスト
+		
 		puts 'x,y'
 		renge1.each do |i|
 			renge2.each do |j|
 				stoneNum=getPlaceStone(i,j)
-				if stoneNum==false 
+				if stoneNum==false#座標範囲外の時
 					next 
 				end
 				puts 'i('+i.to_s+') j('+j.to_s+')='+stoneNum.to_s
@@ -177,9 +178,10 @@ class Reversi
 					puts 'x+diffX*2('+searchX.to_s+') y+diffY*2('+searchY.to_s+')='+getPlaceStone(searchX,searchY).to_s
 					loop{
 						getState=getPlaceStone(searchX,searchY)
-						if getState==false 
+						if getState==false#座標が範囲外の時 
 							break
 						end
+						
 						if getState==state
 							puts'置ける'
 							tmpReverseList.each do |item|
@@ -197,9 +199,13 @@ class Reversi
 				end
 			end
 		end
+		
 		return reverseList
 	end
 
+	#指定したマス目の状態を取得
+	#@param x x座標
+	#@param y y座標
 	def getPlaceStone(x,y)
 		if y>=0 and x>=0 and x<@boardGridNum and y<@boardGridNum
 			return @gridState[x][y]
@@ -213,10 +219,12 @@ class Reversi
 		font=SDL::TTF.open('font/msgothic.ttc',24)
 		#フォントの高さを取得
 		fontHeight=font.height+1
+		#表示する文字列
 		showStr=[@stoneColor+'の番です',
 			 @turnNum.to_s+'ターン目です',
 			 '黒:'+"%2d" % @blackStoneNum.to_s+'白:'+"%2d" % @whiteStoneNum.to_s
 			]
+		開始座標
 		startX=500
 		startY=0
 		fontColor=[0,0,0]
