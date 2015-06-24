@@ -8,6 +8,8 @@ require 'pp'
 class Reversi
 	@@stoneState={'none'=>0,'white'=>1,'black'=>2}#マス目の状態を表す値を持つハッシュ
 	
+	attr_accessor :gridSize
+	
 	#初期化処理
 	# @param windowWidth 画面の幅
 	# @param windowHeight 画面の高さ
@@ -235,7 +237,5 @@ class Reversi
 			@whiteStoneNum+=state.count(@@stoneState['white'])
 		end
 	end
-
-	attr_accessor :gridSize
 end
 
