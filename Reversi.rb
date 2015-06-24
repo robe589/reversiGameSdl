@@ -3,6 +3,7 @@ require 'bundler'
 Bundler.require
 
 require 'sdl'
+require 'pp'
 
 class Reversi
 	@@stoneState={'none'=>0,'white'=>1,'black'=>2}#マス目の状態を表す値を持つハッシュ
@@ -88,6 +89,51 @@ class Reversi
 			@@stoneColor= @@stoneColor=='black' ? 'white':'black'
 			@turnNum+=1
 		end
+	end
+	
+	def showPutStone()
+		putStonePlaceList=Array.new
+		
+		#置ける場所のリストを作成
+		@@boardGridNum.times do |i|
+			@@boardGridNum.times do |j|
+				if getPlaceStone(i,j)!=@@stoneState['none']
+				   next
+				end
+				reverseList=searchPlaceable(i,j,@@stoneState[@@stoneColor])
+				if reverseList.length !=0
+					putStonePlaceList.push([i,j])
+				end
+			end
+		end
+		pp putStonePlaceList
+		
+		rectSpace=2
+		#リストに基づけ画面に描画
+		xy=[@windowSpace+rectSpace,@windowSpace+rectSpace]
+		color=[255,0,0]
+		@@boardGridNum.times do |i|
+			@@boardGridNum.times do |j|
+				isPut=false
+				putStonePlaceList.each do |data|
+					pp data
+					if data[0]==j and data[1]==i
+						isPut=true
+					end
+				end
+				width=@gridSize-rectSpace*2
+				height=@gridSize-rectSpace*2
+				if isPut==true 
+					@screen.draw_rect(xy[0],xy[1],width,height,color,false)
+				else
+					@screen.draw_rect(xy[0],xy[1],width,height,@color[0],false)
+				end
+				xy[0]+=@gridSize;
+			end
+			xy[0]=@windowSpace+rectSpace
+			xy[1]+=@gridSize
+		end
+
 	end
 	
 	#石を置くことが可能かどうか
